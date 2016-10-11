@@ -11,13 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-	//"." are like slashes, but we don't use slashes because this is not how it would work in pc's, the slashes are opposite in mac 
-    return view('layouts.my-first-view');
-});
+// Route::get('/', function () {
+// 	//"." are like slashes, but we don't use slashes because this is not how it would work in pc's, the slashes are opposite in mac 
+//     return view('layouts.my-first-view');
+// });
+
+
+Route:: get('/', 'HomeController@showWelcome');
+
+// get('/dice/{guess}', HomeController@rollDice');
 
 Route::get('/view', function () {
-	//"." are like slashes, but we don't use slashes because this is not how it would work in pc's, the slashes are opposite in mac 
     return view('layouts.my-first-view');
 });
 // Route::get('/view', function (){
@@ -46,11 +50,6 @@ Route::get('/rolldice/{guess?}', function ($guess = 1){
  	return view ('layouts.roll-dice')->with ($data);
 	});
 
-//the correct way of doing the roll dice:
-// Route::get('/rolldice/{guess?}', function($guess = 1){
-// 	$dice_roll = mt_rand(1,6);
-// 	return ('roll-dice')->with('dice_roll', $dice_roll);
-// });
 
 
 
@@ -67,11 +66,13 @@ Route::get('/sayhello/{name?}', function($name = 'Lassen'){
 
 //Create a route at the path /uppercase that takes a parameter that is a word and returns a string that is the word in all caps.
 
-Route::get('/uppercase/{word?}',function($word = 'codeup'){
-	$data = array('word' => $word,
-				  'upperWord' => strtoupper($word));
-	return view('layouts.uppercase')->with ($data);
-});
+// Route::get('/uppercase/{word?}',function($word = 'codeup'){
+// 	$data = array('word' => $word,
+// 				  'upperWord' => strtoupper($word));
+// 	return view('layouts.uppercase')->with ($data);
+// });
+
+Route::get('/uppercase/{word?}', 'HomeController@showUpperCase');
 
 //Create a route at the path /increment that takes a parameter that is a number and returns the number plus one
 Route::get('/increment/{number?}',function($number = 1){
