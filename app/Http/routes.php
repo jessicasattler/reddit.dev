@@ -64,22 +64,17 @@ Route::get('/sayhello/{name?}', function($name = 'Lassen'){
 	return view('layouts.my-first-view')->with ($data);
 });
 
-//Create a route at the path /uppercase that takes a parameter that is a word and returns a string that is the word in all caps.
-
-// Route::get('/uppercase/{word?}',function($word = 'codeup'){
-// 	$data = array('word' => $word,
-// 				  'upperWord' => strtoupper($word));
-// 	return view('layouts.uppercase')->with ($data);
-// });
 
 Route::get('/uppercase/{word?}', 'HomeController@showUpperCase');
 
 //Create a route at the path /increment that takes a parameter that is a number and returns the number plus one
-Route::get('/increment/{number?}',function($number = 1){
-	$data = array('number' => $number,
-				  'incNumber' => $number + 1);
-	return view('layouts.increment')->with ($data);
-});
+// Route::get('/increment/{number?}',function($number = 1){
+// 	$data = array('number' => $number,
+// 				  'incNumber' => $number + 1);
+// 	return view('layouts.increment')->with ($data);
+// });
+
+Route::get('/increment/{number?}', 'HomeController@showIncrement');
 //route to add the two numbers given together
 Route::get('/add/{a?}/{b?}', function($a = 2, $b = 3){
 	return $a + $b;

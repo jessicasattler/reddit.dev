@@ -16,6 +16,11 @@ class HomeController extends Controller
 		return view('layouts.uppercase')->with ($data);
     }
 
-    
+    public function showIncrement($number = 1)
+    {
+    	$data = array('number' => $number,
+				  'incNumber' => $number + 1);
+		return view('layouts.increment')->with ($data);
+    }
 
 }
