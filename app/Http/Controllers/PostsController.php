@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
+use App\Models\Post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -19,7 +21,23 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return 'Return all the posts';
+        // return 'Return all the posts';
+
+         // dd(Post::find(1));
+        $posts = Post::all();
+        //adlister version
+        // foreach($posts as $post){
+        //     echo $post['title'];
+        //     echo $post['url'];
+        //     echo $post['content'];
+        // }
+
+        //laravel version
+        foreach($posts as $post){
+            echo $post->title;
+            echo $post->url;
+            echo $post->content;
+        }
     }
 
     /**
