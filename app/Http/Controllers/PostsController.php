@@ -25,19 +25,10 @@ class PostsController extends Controller
 
          // dd(Post::find(1));
         $posts = Post::all();
-        //adlister version
-        // foreach($posts as $post){
-        //     echo $post['title'];
-        //     echo $post['url'];
-        //     echo $post['content'];
-        // }
 
-        //laravel version
-        foreach($posts as $post){
-            echo $post->title;
-            echo $post->url;
-            echo $post->content;
-        }
+        $data = array('posts'=>$posts);
+        return view('posts.index', $data);
+
     }
 
     /**
@@ -60,24 +51,16 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+
+         // return back()->withInput();
         
-        //Fernando's Example
-        // $inputs = $request->all();
-        // if($request->has('name')){
-        //     echo 'has name';
-        // }else{
-        //     echo "Doesn't have name";
-        // }
-        
-
-        // var_dump($inputs['name']);
-        //var_dump($request->name);
-        //var_dump($request->input('name'));
-
-
-         return back()->withInput();
-        
-
+    
+        $post2->title = $request->title;
+        $post2->url=$request->url;
+        $post2->content =$request->content;
+        $post2->created_by = 1;
+        $post2->save();
+        return redirect()->action('PostsController@index');
 
     }
 
@@ -89,7 +72,11 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return 'Show a specific post';
+        $posts = Post::find($id);
+        // dd($post);
+        $data = array('posts'=>$posts);
+        return view('posts.show',$data);
+        
     }
 
     /**
@@ -115,6 +102,7 @@ class PostsController extends Controller
        
         return back()->withInput();
         // return view('posts.create', $inputs);
+
     }
 
     /**
