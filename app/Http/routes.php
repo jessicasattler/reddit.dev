@@ -26,4 +26,4 @@ Route::get('/increment/{number?}', 'HomeController@showIncrement');
 
 Route::get('/add/{a?}/{b?}', 'HomeController@add');
 
-
+Route::resource('posts', 'PostsController');
