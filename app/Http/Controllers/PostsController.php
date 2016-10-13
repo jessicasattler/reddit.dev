@@ -54,13 +54,13 @@ class PostsController extends Controller
 
          // return back()->withInput();
         
-    
-        $post2->title = $request->title;
-        $post2->url=$request->url;
-        $post2->content =$request->content;
-        $post2->created_by = 1;
-        $post2->save();
-        return redirect()->action('PostsController@index');
+        $post = new Post;
+        $post->title = $request->title;
+        $post->url=$request->url;
+        $post->content =$request->content;
+        $post->created_by = 1;
+        $post->save();
+        return redirect()->action('PostsController@show', $post->id);
 
     }
 
@@ -74,8 +74,10 @@ class PostsController extends Controller
     {
         $posts = Post::find($id);
         // dd($post);
+
         $data = array('posts'=>$posts);
-        return view('posts.show',$data);
+
+        return view('posts.show', $data);
         
     }
 
@@ -87,7 +89,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        return view ('posts.edit');
+        $post = Post::find($id);
+        $data = array('post'=>$post);
+        return view ('posts.edit', $data);
     }
 
     /**
@@ -100,9 +104,15 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
        
-        return back()->withInput();
+        // return back()->withInput();
         // return view('posts.create', $inputs);
-
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->url=$request->url;
+        $post->content =$request->content;
+        $post->created_by = 1;
+        $post->save();
+        return redirect()->action('PostsController@show', $post->id);
     }
 
     /**
@@ -114,5 +124,6 @@ class PostsController extends Controller
     public function destroy($id)
     {
         return 'Delete a specific post';
+
     }
 }

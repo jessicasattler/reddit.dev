@@ -1,7 +1,10 @@
 @extends('layouts.master')
 
-@section('title','Show')
+@section('title','Index')
 
 @section('content')
-	{{!!$posts!!}};
+	
+		<h3>{{$posts->title}}</h3>
+		<p>{{$posts->content}}</p>
+
 @stop 
