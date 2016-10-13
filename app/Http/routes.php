@@ -26,6 +26,8 @@ Route::get('/increment/{number?}', 'HomeController@showIncrement');
 
 Route::get('/add/{a?}/{b?}', 'HomeController@add');
 
+Route::resource('users','UsersController');
+
 Route::resource('posts', 'PostsController');
 
 Route::get('orm-test', function()

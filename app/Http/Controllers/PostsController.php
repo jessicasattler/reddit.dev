@@ -24,7 +24,7 @@ class PostsController extends Controller
         // return 'Return all the posts';
 
          // dd(Post::find(1));
-        $posts = Post::all();
+        $posts = Post::paginate(3);
 
         $data = array('posts'=>$posts);
         return view('posts.index', $data);
@@ -50,16 +50,29 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+         // associative array whose keys are input names in the request
+        // values are the validation rules
+        $rules = [
+            'title'   => 'required|min:5',
+            'url'     => 'required',
+            'content' => 'required',
+        ];
 
-         // return back()->withInput();
-        
+        $request->session()->flash('ERROR_MESSAGE', 'Post was not saved.');
+        // will redirect back with $errors object populated if validation fails
+        $this->validate($request, $rules);
+
+        $request->session()->forget('ERROR_MESSAGE');
+
         $post = new Post;
         $post->title = $request->title;
         $post->url=$request->url;
         $post->content =$request->content;
         $post->created_by = 1;
         $post->save();
+
+        $request->session()->flash('SUCCESS_MESSAGE', 'Post was saved succesfully');
         return redirect()->action('PostsController@show', $post->id);
 
     }

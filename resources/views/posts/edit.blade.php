@@ -4,7 +4,7 @@
 
 @section('content')
     <h1 style="color:Black;margin-left:30px;">Edit A Post</h1>
-    <div style = "background-color:#2F629B; color:black;margin-top:40px;margin-left:40px; margin-right:40px;">
+    <div style = "background-color:#2F629B; color:black;margin-top:30px;margin-left:40px; margin-right:40px;">
         <form method="POST" action="{{ action('PostsController@update', $post->id) }}" >
             {!! csrf_field() !!}
             {!! method_field('PUT') !!}

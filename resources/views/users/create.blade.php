@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
-@section('title','Create')
+@section('title', 'Create New User')
 
 @section('content')
-	<h1 style="color:Black;margin-left:30px;">Create New Post</h1>
+	<h1 style="color:Black;margin-left:30px;">Create New User</h1>
 	<div style = "background-color:#2F629B; color:white;margin-top:30px;margin-left:40px; margin-right:30px;">
 		<form class="form" method="POST" action="{{ action('PostsController@store') }}">
 			{!! csrf_field() !!}
