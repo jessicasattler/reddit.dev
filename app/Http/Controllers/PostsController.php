@@ -38,8 +38,7 @@ class PostsController extends Controller
      */
     public function create(Request $request)
     {
-        // return view'Show a form for creating a post';
-        return view('posts.create');
+       return view('posts.create');
 
     }
 
@@ -119,12 +118,28 @@ class PostsController extends Controller
        
         // return back()->withInput();
         // return view('posts.create', $inputs);
+     
+        $rules = [
+            'title'   => 'required|min:5',
+            'url'     => 'required',
+            'content' => 'required',
+        ];
+
+        $request->session()->flash('ERROR_MESSAGE', 'Post was not saved.');
+        // will redirect back with $errors object populated if validation fails
+        $this->validate($request, $rules);
+
+        $request->session()->forget('ERROR_MESSAGE');
+
         $post = Post::find($id);
         $post->title = $request->title;
         $post->url=$request->url;
         $post->content =$request->content;
         $post->created_by = 1;
         $post->save();
+
+        $request->session()->flash('SUCCESS_MESSAGE', 'Post was saved succesfully');
+
         return redirect()->action('PostsController@show', $post->id);
     }
 
