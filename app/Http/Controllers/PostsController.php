@@ -123,7 +123,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        return 'Delete a specific post';
+        $post = Post::find($id);
+        $post = delete();
 
     }
 }
