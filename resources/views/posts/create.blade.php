@@ -4,7 +4,7 @@
 
 @section('content')
 	<h1 style="color:Black;margin-left:30px;">Create New Post</h1>
-	<div style = "background-color:#2F629B; color:white;margin-top:30px;margin-left:40px; margin-right:30px;">
+	<div style = "background-color:white; color:black;margin-top:30px;margin-left:40px; margin-right:30px;">
 		<form class="form" method="POST" action="{{ action('PostsController@store') }}">
 			{!! csrf_field() !!}
 			    @if($errors->has('title'))
@@ -19,7 +19,7 @@
 					</div>
 				@endif
 			Url: <input class="form-control" type="text" name="url" value="{{ old('url') }}">
-				@if($errors->has('url'))
+				@if($errors->has('content'))
 					<div class="alert alert-danger">
 						{{ $errors->first('content') }}
 					</div>

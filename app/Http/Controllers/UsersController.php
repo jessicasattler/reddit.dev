@@ -28,7 +28,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         return view('users.create');
     }
@@ -42,12 +42,28 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $rules =[
-            'name' => 'require|min3',
-            'email'=> 'require|email',
-            'password' => 'require|min3',
-
+            'name' => 'required|min:3',
+            // 'email'=> 'required|email',
+            'email'=> 'required',
+            'password' => 'required|min:3',
 
         ];
+
+        $request->session()->flash('ERROR_MESSAGE', 'User information was not saved');
+        // will redirect back with $errors object populated if validation fails
+        $this->validate($request, $rules);
+
+        $request->session()->forget('ERROR_MESSAGE');
+
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        $request->session()->flash('SUCCESS_MESSAGE', 'User was saved succesfully');
+        return redirect()->action('UsersController@show', $user->id);
+
     }
 
     /**
@@ -58,7 +74,11 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = User::find($id);
+
+        $data = array('users' => $users);
+
+        return view('users.show', $data);
     }
 
     /**
@@ -69,7 +89,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User:find($id);
+        $data = array('user'=>$user);
+        return view('users.edit', $data);
     }
 
     /**
@@ -81,7 +103,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

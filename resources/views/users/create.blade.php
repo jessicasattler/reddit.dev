@@ -5,26 +5,29 @@
 @section('content')
 	<h1 style="color:Black;margin-left:30px;">Create New User</h1>
 	<div style = "background-color:#2F629B; color:white;margin-top:30px;margin-left:40px; margin-right:30px;">
-		<form class="form" method="POST" action="{{ action('PostsController@store') }}">
+		<form class="form" method="POST" action="{{ action('UsersController@store') }}">
 			{!! csrf_field() !!}
-			    @if($errors->has('title'))
+
+			    @if($errors->has('name'))
 	                <div class="alert alert-danger">
-	                    {{ $errors->first('title') }}
+	                    {{ $errors->first('name') }}
 	                </div>
 	            @endif
-			Title: <input class="form-control" type="text" name="title" value="{{ old('title') }}">
-				@if($errors->has('url'))
+			Name: <input class="form-control" type="text" name="name" value="{{ old('name') }}">
+
+				@if($errors->has('email'))
 					<div class="alert alert-danger">
-						{{ $errors->first('url') }}
+						{{ $errors->first('email') }}
 					</div>
 				@endif
-			Url: <input class="form-control" type="text" name="url" value="{{ old('url') }}">
-				@if($errors->has('url'))
+			Email: <input class="form-control" type="text" name="email" value="{{ old('email') }}">
+
+				@if($errors->has('password'))
 					<div class="alert alert-danger">
-						{{ $errors->first('content') }}
+						{{ $errors->first('password') }}
 					</div>
 				@endif
-			Content: <textarea class="form-control" name="content" rows="5" cols="40"> {{ old('content') }}</textarea>
+			Password: <input class="form-control" type="password" name="password" value="{{ old('password') }}">
 			<input class="btn-success btn" type="submit">
 		</form>
 	</div>
