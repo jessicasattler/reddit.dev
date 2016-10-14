@@ -21,21 +21,19 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // return 'Return all the posts';
+   
+        // Log::info('This is some useful information.');
 
-         // dd(Post::find(1));
+        // abort(503);
+        Log::info($request->all());
+        abort(404);
 
+        $posts = Post::paginate(3);
 
-        Log::info('This is some useful information.');
-
-        abort(503);
-
-        // $posts = Post::paginate(3);
-
-        // $data = array('posts'=>$posts);
-        // return view('posts.index', $data);
+        $data = array('posts'=>$posts);
+        return view('posts.index', $data);
 
     }
 
@@ -60,11 +58,16 @@ class PostsController extends Controller
     {   
          // associative array whose keys are input names in the request
         // values are the validation rules
+
+
         $rules = [
             'title'   => 'required|min:5',
             'url'     => 'required',
             'content' => 'required',
         ];
+        //  Log::info($request->all());
+        // // Log::info('This is some useful information.');
+        // abort(404);
 
         $request->session()->flash('ERROR_MESSAGE', 'Post was not saved.');
         // will redirect back with $errors object populated if validation fails
@@ -90,9 +93,14 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        $posts = Post::find($id);
+
+        // if(empty($id)){
+        //     Log::info($request->all());
+        //     abort(404);
+        // }
+        $posts = Post::findOrFail($id);
         // dd($post);
 
         $data = array('posts'=>$posts);
@@ -109,8 +117,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         $data = array('post'=>$post);
+
         return view ('posts.edit', $data);
     }
 
@@ -139,7 +148,7 @@ class PostsController extends Controller
 
         $request->session()->forget('ERROR_MESSAGE');
 
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         $post->title = $request->title;
         $post->url=$request->url;
         $post->content =$request->content;
@@ -159,8 +168,10 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         $post = delete();
+        return redirect ('/posts');
+        return redirect()->action('PostsController@index');
 
     }
 }
