@@ -7,6 +7,8 @@
 	<div style = "background-color:#2F629B; color:white;margin-top:15px;"class="container">
 		<h3>{{$posts->title}}</h3>
 		<p>{{$posts->content}}</p>
+		<hr>
+		<h6>Created: {{$posts->created_at->diffForHumans()}}</h6>
 	</div>
 
 @stop 

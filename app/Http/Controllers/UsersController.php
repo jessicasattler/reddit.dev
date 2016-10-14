@@ -30,7 +30,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -41,7 +41,13 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules =[
+            'name' => 'require|min3',
+            'email'=> 'require|email',
+            'password' => 'require|min3',
+
+
+        ];
     }
 
     /**
