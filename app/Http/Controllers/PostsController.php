@@ -1,7 +1,7 @@
 <?php
-
+//tells you where your class lives
 namespace App\Http\Controllers;
-
+//user is more for importing
 use Illuminate\Http\Request;
 
 
@@ -9,6 +9,8 @@ use App\Models\Post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+
+use Illuminate\Support\Facades\Log;
 // Add a return value to each of the methods in the PostsController that describes what the method should do based on the table in this lesson.
 // For example, we said that the index method should return a list of all posts, so going to reddit.dev/posts should return the string 'A listing of all posts'.
 
@@ -24,10 +26,16 @@ class PostsController extends Controller
         // return 'Return all the posts';
 
          // dd(Post::find(1));
-        $posts = Post::paginate(3);
 
-        $data = array('posts'=>$posts);
-        return view('posts.index', $data);
+
+        Log::info('This is some useful information.');
+
+        abort(503);
+
+        // $posts = Post::paginate(3);
+
+        // $data = array('posts'=>$posts);
+        // return view('posts.index', $data);
 
     }
 
