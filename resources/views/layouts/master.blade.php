@@ -32,6 +32,9 @@
       	<li><a href="http://reddit.dev/posts/1">Individual Post</a></li>
         <li><a href="http://reddit.dev/posts/2/edit">Edit Post</a></li>
         <li><a href="http://reddit.dev/posts/create">Create Post</a></li>
+        <li><a href="http://reddit.dev/auth/login">Login</a></li>
+        <li><a href="http://reddit.dev/auth/register">Register</a></li>
+
 
       </ul>
     </div><!-- /.navbar-collapse -->
