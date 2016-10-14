@@ -89,7 +89,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $user = User:find($id);
+        $user = User::find($id);
         $data = array('user'=>$user);
         return view('users.edit', $data);
     }
@@ -103,7 +103,23 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $rules = [
+            'title' => 'required|min:5',
+            'url' => 'required',
+            'content' => 'required',
+        ];
+
+        $request->session()->forget('ERROR_MESSAGE');
+
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        $request->session()->flash('SUCCESS_MESSAGE', 'User was saved succesfully');
+
+        return redirect()->action('UsersController@show', $user->id);
     }
 
     /**
@@ -114,6 +130,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Post::find($id);
+        $user = delete();
+
     }
 }

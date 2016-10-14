@@ -4,7 +4,7 @@
 
 @section('content')
 	<h1 style="color:Black;margin-left:30px;">Create New User</h1>
-	<div style = "background-color:#2F629B; color:white;margin-top:30px;margin-left:40px; margin-right:30px;">
+	<div style = "background-color:white; color:black;margin-top:30px;margin-left:40px; margin-right:30px;">
 		<form class="form" method="POST" action="{{ action('UsersController@store') }}">
 			{!! csrf_field() !!}
 

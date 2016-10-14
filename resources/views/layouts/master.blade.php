@@ -28,6 +28,7 @@
         <li><a href="http://reddit.dev/users/create">Sign Up</a></li>
 
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://reddit.dev/users/1">Individual User</a></li>
       	<li><a href="http://reddit.dev/posts/1">Individual Post</a></li>
         <li><a href="http://reddit.dev/posts/2/edit">Edit Post</a></li>
         <li><a href="http://reddit.dev/posts/create">Create Post</a></li>
