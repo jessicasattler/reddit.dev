@@ -5,6 +5,9 @@
     <title>@yield('title')</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+      <!-- Custom CSS -->
+    <link href="/css/main.css" rel="stylesheet">
+
 </head>
 <body>
 	{{-- @include('partials.navbar') --}}
@@ -58,8 +61,18 @@
     </div>
 
  {{--    @include('partials.footer') --}}
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-    <script src="/js/bootstrap.min.js"></script>
+ <!-- Footer -->
+<footer>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <p>Copyright &copy; Reddit 2016</p>
+        </div>
+    </div>
+    <!-- /.row -->
+</footer>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </body>
 </html>
