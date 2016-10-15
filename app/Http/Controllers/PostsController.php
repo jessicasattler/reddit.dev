@@ -27,8 +27,8 @@ class PostsController extends Controller
         // Log::info('This is some useful information.');
 
         // abort(503);
-        Log::info($request->all());
-        abort(404);
+        // Log::info($request->all());
+        // abort(404);
 
         $posts = Post::paginate(3);
 

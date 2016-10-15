@@ -41,11 +41,11 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $rules =[
-            'name' => 'required|min:3',
-            // 'email'=> 'required|email',
-            'email'=> 'required',
-            'password' => 'required|min:3',
+        // $rules =[
+        //     'name' => 'required|min:3',
+        //     // 'email'=> 'required|email',
+        //     'email'=> 'required',
+        //     'password' => 'required|min:3',
 
         ];
 
