@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Log;
 
 class PostsController extends Controller
 {
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     parent::__construct();
+    // }
     /**
      * Display a listing of the resource.
      *
