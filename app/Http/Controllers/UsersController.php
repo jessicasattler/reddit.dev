@@ -41,28 +41,28 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        // $rules =[
-        //     'name' => 'required|min:3',
-        //     // 'email'=> 'required|email',
-        //     'email'=> 'required',
-        //     'password' => 'required|min:3',
+        $rules =[
+            'name' => 'required|min:3',
+            // 'email'=> 'required|email',
+            'email' => 'required',
+            'password' => 'required|min:3',
 
-        // ];
+        ];
 
-        // $request->session()->flash('ERROR_MESSAGE', 'User information was not saved');
+        $request->session()->flash('ERROR_MESSAGE', 'User information was not saved');
         // // will redirect back with $errors object populated if validation fails
-        // $this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-        // $request->session()->forget('ERROR_MESSAGE');
+        $request->session()->forget('ERROR_MESSAGE');
 
-        // $user = new User;
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->password = $request->password;
-        // $user->save();
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
 
-        // $request->session()->flash('SUCCESS_MESSAGE', 'User was saved succesfully');
-        // return redirect()->action('UsersController@show', $user->id);
+        $request->session()->flash('SUCCESS_MESSAGE', 'User was saved succesfully');
+        return redirect()->action('UsersController@show', $user->id);
 
     }
 
@@ -104,24 +104,24 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
 
-        $hashed_password = Hash::make($password);
-        // $rules = [
-        //     'title' => 'required|min:5',
-        //     'url' => 'required',
-        //     'content' => 'required',
-        // ];
+        // $hashed_password = Hash::make($password);
+        $rules = [
+            'title' => 'required|min:5',
+            'url' => 'required',
+            'content' => 'required',
+        ];
 
-        // $request->session()->forget('ERROR_MESSAGE');
+        $request->session()->forget('ERROR_MESSAGE');
 
-        // $user = User::find($id);
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->password = $request->password;
-        // $user->save();
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
 
-        // $request->session()->flash('SUCCESS_MESSAGE', 'User was saved succesfully');
+        $request->session()->flash('SUCCESS_MESSAGE', 'User was saved succesfully');
 
-        // return redirect()->action('UsersController@show', $user->id);
+        return redirect()->action('UsersController@show', $user->id);
     }
 
     /**

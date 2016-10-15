@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="http://reddit.dev/posts#">Blog <span class="sr-only">(current)</span></a></li>
-        <li><a href="http://reddit.dev/users/create">Sign Up</a></li>
+        
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href="http://reddit.dev/users/1">Individual User</a></li>
