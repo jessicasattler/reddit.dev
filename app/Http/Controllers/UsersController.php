@@ -47,22 +47,22 @@ class UsersController extends Controller
         //     'email'=> 'required',
         //     'password' => 'required|min:3',
 
-        ];
+        // ];
 
-        $request->session()->flash('ERROR_MESSAGE', 'User information was not saved');
-        // will redirect back with $errors object populated if validation fails
-        $this->validate($request, $rules);
+        // $request->session()->flash('ERROR_MESSAGE', 'User information was not saved');
+        // // will redirect back with $errors object populated if validation fails
+        // $this->validate($request, $rules);
 
-        $request->session()->forget('ERROR_MESSAGE');
+        // $request->session()->forget('ERROR_MESSAGE');
 
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
+        // $user = new User;
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->password = $request->password;
+        // $user->save();
 
-        $request->session()->flash('SUCCESS_MESSAGE', 'User was saved succesfully');
-        return redirect()->action('UsersController@show', $user->id);
+        // $request->session()->flash('SUCCESS_MESSAGE', 'User was saved succesfully');
+        // return redirect()->action('UsersController@show', $user->id);
 
     }
 
@@ -103,23 +103,25 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = [
-            'title' => 'required|min:5',
-            'url' => 'required',
-            'content' => 'required',
-        ];
 
-        $request->session()->forget('ERROR_MESSAGE');
+        $hashed_password = Hash::make($password);
+        // $rules = [
+        //     'title' => 'required|min:5',
+        //     'url' => 'required',
+        //     'content' => 'required',
+        // ];
 
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
+        // $request->session()->forget('ERROR_MESSAGE');
 
-        $request->session()->flash('SUCCESS_MESSAGE', 'User was saved succesfully');
+        // $user = User::find($id);
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->password = $request->password;
+        // $user->save();
 
-        return redirect()->action('UsersController@show', $user->id);
+        // $request->session()->flash('SUCCESS_MESSAGE', 'User was saved succesfully');
+
+        // return redirect()->action('UsersController@show', $user->id);
     }
 
     /**
