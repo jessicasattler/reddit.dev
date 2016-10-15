@@ -1,8 +1,17 @@
 
 body {
     padding-top: 0px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background-image:url("../img/desk.jpeg");
+    background-size:100% auto;
+    background-repeat: no-repeat;
+}
+
+h1{
+		/*<h1 style="color:Black;margin-left:30px;">Blog</h1>*/
+	color:Black;
+	margin-left:30px;
 }
 
 footer {
-    margin: 50px 0;
+    margin: 25px 0;
 }
