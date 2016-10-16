@@ -74,11 +74,12 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $users = User::find($id);
+        $user = User::findOrFail($id);
 
-        $data = array('users' => $users);
+        $data = array('user' => $user);
 
         return view('users.show', $data);
+
     }
 
     /**

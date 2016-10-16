@@ -11,41 +11,41 @@
 */
 
 //"Route::"" is optional
-// Route:: get('/', 'HomeController@showWelcome');
+Route:: get('/', 'HomeController@showWelcome');
 
-// Route::get('/rolldice/{guess?}', 'HomeController@showRollDice');
-
-
-// Route::get('/sayhello/{name?}', 'HomeController@sayHello');
+Route::get('/rolldice/{guess?}', 'HomeController@showRollDice');
 
 
-// Route::get('/uppercase/{word?}', 'HomeController@showUpperCase');
+Route::get('/sayhello/{name?}', 'HomeController@sayHello');
 
-// Route::get('/increment/{number?}', 'HomeController@showIncrement');
 
-// Route::get('/add/{a?}/{b?}', 'HomeController@add');
+Route::get('/uppercase/{word?}', 'HomeController@showUpperCase');
 
-// Route::resource('users','UsersController');
+Route::get('/increment/{number?}', 'HomeController@showIncrement');
 
-// Route::resource('posts', 'PostsController');
+Route::get('/add/{a?}/{b?}', 'HomeController@add');
 
-// Route::get('orm-test', function()
-// {
-// 	//test code here
-// 	$post1 = new \App\Models\Post();
-// 	$post1->title = 'Eloquent is awesome!';
-// 	$post1->url='https://laravel.com/docs/5.1/eloquent';
-// 	$post1->content  = 'It is super easy to create a new post.';
-// 	$post1->created_by = 1;
-// 	$post1->save();
+Route::resource('users','UsersController');
 
-// 	$post2 = new \App\Models\Post();
-// 	$post2->title = 'Eloquent is really easy!';
-// 	$post2->url='https://laravel.com/docs/5.1/eloquent';
-// 	$post2->content = 'It is super easy to create a new post.';
-// 	$post2->created_by = 1;
-// 	$post2->save();
-// });
+Route::resource('posts', 'PostsController');
+
+Route::get('orm-test', function()
+{
+	//test code here
+	$post1 = new \App\Models\Post();
+	$post1->title = 'Eloquent is awesome!';
+	$post1->url='https://laravel.com/docs/5.1/eloquent';
+	$post1->content  = 'It is super easy to create a new post.';
+	$post1->created_by = 1;
+	$post1->save();
+
+	$post2 = new \App\Models\Post();
+	$post2->title = 'Eloquent is really easy!';
+	$post2->url='https://laravel.com/docs/5.1/eloquent';
+	$post2->content = 'It is super easy to create a new post.';
+	$post2->created_by = 1;
+	$post2->save();
+});
 
 Route::get('/', ['middleware'=>'auth'], function () {
     return redirect()->action('PostsController@index');
