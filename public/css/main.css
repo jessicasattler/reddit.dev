@@ -3,9 +3,10 @@ body {
     background-image:url("../img/desk.jpeg");
     background-size:100% auto;
     background-repeat: no-repeat;
-    font-family: 'Archivo Narrow', sans-serif;
-font-family: 'Gloria Hallelujah', cursive;
-font-family: 'Architects Daughter', cursive;
+/*    font-family: 'Archivo Narrow', sans-serif;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-family: 'Architects Daughter', cursive;*/
+	font-family: 'Berkshire Swash', cursive;
 }
 
 h1{
