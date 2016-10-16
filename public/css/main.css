@@ -7,11 +7,31 @@ body {
 }
 
 h1{
-		/*<h1 style="color:Black;margin-left:30px;">Blog</h1>*/
 	color:Black;
 	margin-left:30px;
 }
 
+.around{
+	/*<div style = "background-color:#2F629B; color:white;margin-top:15px;" class="container around">*/
+	/*<div style = "background-color:#2F629B; color:white;margin-top:15px;" class="container around">*/
+	background-color: #2F629B;
+	color:white;
+	margin-top:15px;
+
+}
+
+.create{
+	/*<div style = "background-color:white; color:black;
+	margin-top:30px;margin-left:40px; margin-right:30px;" 
+	class = "create">*/
+
+	/*<div style = "background-color:white; color:black;margin-top:30px;margin-left:40px; margin-right:40px;">*/
+	background-color: white;
+	color:black;
+	margin-top:30px;
+	margin-left: 40px;
+	margin-right:30px;
+}
 footer {
     margin: 25px 0;
 }

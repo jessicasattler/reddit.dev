@@ -3,9 +3,9 @@
 @section('title','Create')
 
 @section('content')
-{{-- 	<h1 style="color:Black;margin-left:30px;">Create New Post</h1> --}}
+
 	<h1>Create New Posts</h1>
-	<div style = "background-color:white; color:black;margin-top:30px;margin-left:40px; margin-right:30px;">
+	<div class = "create">
 		<form class="form" method="POST" action="{{ action('PostsController@store') }}">
 			{!! csrf_field() !!}
 			    @if($errors->has('title'))
@@ -29,4 +29,5 @@
 			<input class="btn-success btn" type="submit">
 		</form>
 	</div>
+
 @stop 

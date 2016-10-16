@@ -3,7 +3,7 @@
 @section('title','Show User')
 
 @section('content')
-	<h1 style="color:Black;margin-left:30px;">Indvidual User</h1>
+	<h1>Individual User</h1>
 	<div style = "background-color:#2F629B; color:white;margin-top:15px;"class="container">
 		<h3>{{$users->name}}</h3>
 		<p>{{$users->email}}</p>

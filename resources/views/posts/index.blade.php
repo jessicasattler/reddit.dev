@@ -3,10 +3,11 @@
 @section('title','Index')
 
 @section('content')
-	{{-- <h1 style="color:Black;margin-left:30px;">Blog</h1> --}}
-	<h1>Blog</h1>
+
+	<h1>Blog Posts</h1>
 	@foreach($posts as $post)
-		<div style = "background-color:#2F629B; color:white;margin-top:15px;"class="container">
+		{{-- <div style = "background-color:#2F629B; color:white;margin-top:15px;" class="container around"> --}}
+		<div class="container around">
 			<h3>{{$post->title}}</h3>
 			<p>{{$post->content}}</p>
 			<hr>
