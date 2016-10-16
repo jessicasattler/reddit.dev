@@ -5,21 +5,21 @@
 
 @section('content')
 <!-- resources/views/auth/login.blade.php -->
-<form method="POST" action="/auth/login">
+<form method="POST" action="/auth/login" class="form">
     {!! csrf_field() !!}
 
     <div>
         Email
-        <input type="email" name="email" value="{{ old('email') }}">
+        <input class = "form-control otherFont" type="email" name="email" value="{{ old('email') }}">
     </div>
 
     <div>
         Password
-        <input type="password" name="password" id="password">
+        <input class = "form-control otherFont" type="password" name="password" id="password">
     </div>
 
     <div>
-        <input type="checkbox" name="remember"> Remember Me
+        <input class = "form-control otherFont" type="checkbox" name="remember"> Remember Me
     </div>
 
     <div>

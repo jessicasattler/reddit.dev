@@ -4,27 +4,27 @@
 @section('title','Register')
 
 @section('content')
-<form method="POST" action="/auth/register">
+<form method="POST" action="/auth/register" class = "form">
     {!! csrf_field() !!}
 
     <div>
         Name
-        <input type="text" name="name" value="{{ old('name') }}">
+        <input class="form-control otherFont" type="text" name="name" value="{{ old('name') }}">
     </div>
 
     <div>
         Email
-        <input type="email" name="email" value="{{ old('email') }}">
+        <input class="form-control otherFont" type="email" name="email" value="{{ old('email') }}">
     </div>
 
     <div>
         Password
-        <input type="password" name="password">
+        <input class="form-control otherFont" type="password" name="password">
     </div>
 
     <div>
         Confirm Password
-        <input type="password" name="password_confirmation">
+        <input class="form-control otherFont" type="password" name="password_confirmation">
     </div>
 
     <div>
