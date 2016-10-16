@@ -1,6 +1,5 @@
 
 body {
-    padding-top: 0px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     background-image:url("../img/desk.jpeg");
     background-size:100% auto;
     background-repeat: no-repeat;
@@ -12,20 +11,15 @@ h1{
 }
 
 .around{
-	/*<div style = "background-color:#2F629B; color:white;margin-top:15px;" class="container around">*/
-	/*<div style = "background-color:#2F629B; color:white;margin-top:15px;" class="container around">*/
-	background-color: #2F629B;
+
+	background-color: rgba(36, 129, 220, 0.8);
 	color:white;
 	margin-top:15px;
 
 }
 
 .create{
-	/*<div style = "background-color:white; color:black;
-	margin-top:30px;margin-left:40px; margin-right:30px;" 
-	class = "create">*/
 
-	/*<div style = "background-color:white; color:black;margin-top:30px;margin-left:40px; margin-right:40px;">*/
 	background-color: white;
 	color:black;
 	margin-top:30px;
