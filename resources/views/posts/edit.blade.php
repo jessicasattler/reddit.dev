@@ -5,11 +5,11 @@
 @section('content')
     {{-- <h1 style="color:Black;margin-left:30px;">Edit A Post</h1> --}}
     <h1>Edit A Post</h1>
-    <div class = "create">
+    <div class = "create otherFont">
         <form method="POST" action="{{ action('PostsController@update', $post->id) }}" >
             {!! csrf_field() !!}
             {!! method_field('PUT') !!}
-            Title: <input type="text" name="title" value="{{ (old('title') == null) ? $post->title : old('title') }}">
+            Title: <input  type="text" name="title" value="{{ (old('title') == null) ? $post->title : old('title') }}">
             <br>
             Url: <input type="text" name="url" value="{{ (old('url') == null) ? $post->url : old('url') }}">
             <br>
