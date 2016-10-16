@@ -13,19 +13,19 @@
 	                    {{ $errors->first('title') }}
 	                </div>
 	            @endif
-			Title: <input class="form-control" type="text" name="title" value="{{ old('title') }}">
+			Title: <input class="form-control  otherFont" type="text" name="title" value="{{ old('title') }}">
 				@if($errors->has('url'))
 					<div class="alert alert-danger">
 						{{ $errors->first('url') }}
 					</div>
 				@endif
-			Url: <input class="form-control" type="text" name="url" value="{{ old('url') }}">
+			Url: <input class="form-control otherFont" type="text" name="url" value="{{ old('url') }}">
 				@if($errors->has('content'))
 					<div class="alert alert-danger">
 						{{ $errors->first('content') }}
 					</div>
 				@endif
-			Content: <textarea class="form-control" name="content" rows="5" cols="40"> {{ old('content') }}</textarea>
+			Content: <textarea class="form-control otherFont" name="content" rows="5" cols="40"> {{ old('content') }}</textarea>
 			<input class="btn-success btn" type="submit">
 		</form>
 	</div>
