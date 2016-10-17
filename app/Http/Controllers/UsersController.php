@@ -80,6 +80,9 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
 
+        //attempt at creating a view to have the show display the posts from that user
+         // $user = User::with('user')->get();
+
         $data = array('user' => $user);
 
         return view('users.show', $data);

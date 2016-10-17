@@ -1,5 +1,7 @@
 <?php
 //tells you where your class lives
+
+//i'm missing something at the top to define auth controller, I believe to have user's post show up
 namespace App\Http\Controllers;
 //user is more for importing
 use Illuminate\Http\Request;
@@ -35,10 +37,22 @@ class PostsController extends Controller
         // abort(404);
 
         
-        $posts = Post::with('user')->paginate(10);
+        // $posts = Post::with('user')->paginate(3);
 
-        $data = array('posts'=>$posts);
-        return view('posts.index', $data);
+        // $data = array('posts'=>$posts);
+        // return view('posts.index', $data);
+
+
+
+        //all posts that have 'lorem' in the title
+        //SELECT * FROM POSTS
+        //WHERE title LIKE '%lorem%'
+
+        $posts = Post::where('title', 'LIKE', '%lorem%')
+                    ->orWhere('content','LIKE','%lorem%')->max('id');
+            
+                dd($posts);
+            
 
     }
 
@@ -158,7 +172,7 @@ class PostsController extends Controller
         $post->title = $request->title;
         $post->url=$request->url;
         $post->content =$request->content;
-        $post->created_by = 1;
+        $post->created_by = Auth::id();
         $post->save();
 
         $request->session()->flash('SUCCESS_MESSAGE', 'Post was saved succesfully');
