@@ -34,12 +34,8 @@ class PostsController extends Controller
         // Log::info($request->all());
         // abort(404);
 
-        // $posts = Post::paginate(3);
+        
         $posts = Post::with('user')->paginate(10);
-        // $user = User::find(2);
-        // dd($user->posts);
-        // $posts = Post::find(1);
-        // dd($posts->user->email);
 
         $data = array('posts'=>$posts);
         return view('posts.index', $data);
