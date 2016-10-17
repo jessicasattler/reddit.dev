@@ -13,6 +13,10 @@
 //"Route::"" is optional
 // Route:: get('/', 'PostsController@index');
 
+//Seach by Title and User's Name routes...
+Route::get('posts/searchTitle', 'PostsController@searchTitle');
+Route::get('users/searchUserName', 'UsersController@searchUserName');
+
 Route::get('/rolldice/{guess?}', 'HomeController@showRollDice');
 
 
@@ -47,9 +51,6 @@ Route::get('orm-test', function()
 	$post2->save();
 });
 
-// Route::get('/', ['middleware'] =>'auth', function () {
-//     return redirect()->action('PostsController@index');
-// });
 Route::get('/', function () {
     return redirect()->action('PostsController@index');
 })->middleware('auth');

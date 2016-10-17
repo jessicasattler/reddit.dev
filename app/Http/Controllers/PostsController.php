@@ -27,34 +27,36 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function searchTitle(Request $request)
+    {
+        // dd($request->get('title'));
+        $posts = Post::where('title', 'LIKE', '%'. $request->get('title') . '%')->get();   
+        // dd($posts);
+        $data = array('posts'=>$posts);
+        return view('posts.search', $data);
+    }
+
     public function index(Request $request)
     {
    
-        // Log::info('This is some useful information.');
-
-        // abort(503);
-        // Log::info($request->all());
-        // abort(404);
-
         
-        // $posts = Post::with('user')->paginate(3);
+        $posts = Post::with('user')->paginate(3);
 
-        // $data = array('posts'=>$posts);
-        // return view('posts.index', $data);
-
-
+        $data = array('posts'=>$posts);
+        return view('posts.index', $data);
 
         //all posts that have 'lorem' in the title
         //SELECT * FROM POSTS
         //WHERE title LIKE '%lorem%'
 
-        $posts = Post::where('title', 'LIKE', '%lorem%')
-                    ->orWhere('content','LIKE','%lorem%')->max('id');
+        // $posts = Post::where('title', 'LIKE', '%lorem%')
+        //             ->orWhere('content','LIKE','%lorem%')->max('id');
             
-                dd($posts);
-            
-
+        //         dd($posts);
     }
+
 
     /**
      * Show the form for creating a new resource.

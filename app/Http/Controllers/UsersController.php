@@ -19,6 +19,16 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function searchUserName(Request $request)
+    {
+        // Use what you learned about building queries to create the ability to search for a user by name.
+
+          $users = User::where('name', 'LIKE', '%'. $request . '%');
+            
+                dd($users);
+    }
     public function index()
     {
         $users = User::paginate(3);

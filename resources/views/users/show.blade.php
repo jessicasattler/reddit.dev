@@ -10,6 +10,7 @@
 		<hr>
 		<h6>Created: {{$user->created_at->diffForHumans()}}</h6>
 	</div>
+	{{-- attempt to have users individual post show up --}}
 {{-- 	@foreach($user >$posts as $post) --}}
 		{{-- <div style = "background-color:#2F629B; color:white;margin-top:15px;" class="container around"> --}}
 {{-- 		<div class="container around">

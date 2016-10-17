@@ -14,7 +14,7 @@
 			<h6>Created : {{$post->created_at->diffForHumans()}} by {{ $post->user->name }}</h6>
 		</div>
 	@endforeach
-
 	{{-- for pagination --}}
 	{!! $posts->render()!!}
+
 @stop 
