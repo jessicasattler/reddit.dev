@@ -11,7 +11,7 @@
 */
 
 //"Route::"" is optional
-Route:: get('/', 'HomeController@showWelcome');
+Route:: get('/', 'PostsController@index');
 
 Route::get('/rolldice/{guess?}', 'HomeController@showRollDice');
 
@@ -47,9 +47,9 @@ Route::get('orm-test', function()
 	$post2->save();
 });
 
-Route::get('/', ['middleware'=>'auth'], function () {
-    return redirect()->action('PostsController@index');
-});
+// Route::get('/', ['middleware'=>'auth'], function () {
+//     return redirect()->action('PostsController@index');
+// });
 Route::resource('posts', 'PostsController');
 Route::resource('users', 'UsersController', ['except' => ['create', 'store']]);
 // Authentication routes...
