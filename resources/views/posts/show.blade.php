@@ -8,6 +8,8 @@
 	<div class="container around">
 		<h3>{{$posts->title}}</h3>
 		<p>{{$posts->content}}</p>
+	{{-- 	new --}}
+		<p>{{$posts->user->name}}</p>
 		<hr>
 		<h6>Created: {{$posts->created_at->diffForHumans()}}</h6>
 	</div>

@@ -11,7 +11,7 @@
 			<h3>{{$post->title}}</h3>
 			<p>{{$post->content}}</p>
 			<hr>
-			<h6>Created : {{$post->created_at->diffForHumans()}}</h6>
+			<h6>Created : {{$post->created_at->diffForHumans()}} by {{ $post->user->name }}</h6>
 		</div>
 	@endforeach
 

@@ -1,5 +1,6 @@
 <?php
 
+// namespace App\Models;
 namespace App;
 
 use Illuminate\Auth\Authenticatable;
@@ -10,6 +11,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
+// class User extends BaseModel implements
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
                                     CanResetPasswordContract
@@ -36,4 +38,9 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Post', 'created_by');
+    }
 }
