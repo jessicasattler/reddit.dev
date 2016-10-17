@@ -33,14 +33,16 @@
         
 
       <ul class="nav navbar-nav navbar-right">
+       
+        @if (Auth::check()) 
+
         {{-- <li><a href="http://reddit.dev/users/1">Individual User</a></li> --}}
         {{-- the following displays the same as the top --}}
-        @if (Auth::check()) 
-   
         <li><a href="{{ action('UsersController@show', array(1)) }}">Individual User</a></li>
         <li><a href="http://reddit.dev/posts/1">Individual Post</a></li>
         <li><a href="http://reddit.dev/posts/4/edit">Edit Post</a></li>
         <li><a href="http://reddit.dev/posts/create">Create Post</a></li>
+        <li><a href="http://reddit.dev/auth/logout">Logout</a></li>
 
         @else 
       
@@ -48,15 +50,6 @@
         <li><a href="http://reddit.dev/auth/login">Login</a></li>
 
         @endif
-
-{{--         <li><a href="{{ action('UsersController@show', array(1)) }}">Individual User</a></li>
-      	<li><a href="http://reddit.dev/posts/1">Individual Post</a></li>
-        <li><a href="http://reddit.dev/posts/4/edit">Edit Post</a></li>
-        <li><a href="http://reddit.dev/posts/create">Create Post</a></li>
-
-        <li><a href="http://reddit.dev/auth/register">Register</a></li>
-        <li><a href="http://reddit.dev/auth/login">Login</a></li> --}}
-
 
       </ul>
     </div><!-- /.navbar-collapse -->
