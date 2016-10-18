@@ -25,9 +25,10 @@ class UsersController extends Controller
     {
         // Use what you learned about building queries to create the ability to search for a user by name.
 
-          $users = User::where('name', 'LIKE', '%'. $request . '%');
-            
-                dd($users);
+        $users = User::where('name', 'LIKE', '%'. $request->get('name') . '%')->get();   
+        // dd($posts);
+        $data = array('users'=>$users);
+        return view('users.show', $data);
     }
     public function index()
     {
@@ -93,7 +94,7 @@ class UsersController extends Controller
         //attempt at creating a view to have the show display the posts from that user
          // $user = User::with('user')->get();
 
-        $data = array('user' => $user);
+        $data = array('users' => array($user));
 
         return view('users.show', $data);
 
