@@ -55,12 +55,7 @@
 
       {{-- search form --}}
 
-     <form class="navbar-form navbar-left" role="search" action="{{ action('PostsController@searchTitle')}}" method= "GET">
-      <div class="form-group">
-        <input name= "title" type="text" class="form-control" placeholder="Search by post title">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
