@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 
 
 use Illuminate\Support\Facades\Log;
+use Auth;
 // Add a return value to each of the methods in the PostsController that describes what the method should do based on the table in this lesson.
 // For example, we said that the index method should return a list of all posts, so going to reddit.dev/posts should return the string 'A listing of all posts'.
 
@@ -43,7 +44,7 @@ class PostsController extends Controller
         //paginate automatically does the "getting", I put 'desc' because the default is to show from oldest to newest
        $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(3);
 
-        $data = array('posts'=>$posts);
+       $data = array('posts'=>$posts);
         return view('posts.index', $data);
     }
 
@@ -90,8 +91,8 @@ class PostsController extends Controller
         $post->title = $request->title;
         $post->url=$request->url;
         $post->content =$request->content;
-        // $post->created_by = Auth::user();
-        $post->created_by = 2;
+        $post->created_by = Auth::id();
+        // $post->created_by = 2;
         $post->save();
 
         $request->session()->flash('SUCCESS_MESSAGE', 'Post was saved succesfully');
