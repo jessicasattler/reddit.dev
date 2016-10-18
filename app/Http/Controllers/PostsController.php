@@ -40,8 +40,7 @@ class PostsController extends Controller
 
     public function index(Request $request)
     {
-        // On the index page, order the posts by the created_at column so that the newest posts appear first
-    
+        //paginate automatically does the "getting", I put 'desc' because the default is to show from oldest to newest
        $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(3);
 
         $data = array('posts'=>$posts);
