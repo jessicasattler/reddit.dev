@@ -40,21 +40,12 @@ class PostsController extends Controller
 
     public function index(Request $request)
     {
-   
-        
-        $posts = Post::with('user')->paginate(3);
+        // On the index page, order the posts by the created_at column so that the newest posts appear first
+    
+       $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(3);
 
         $data = array('posts'=>$posts);
         return view('posts.index', $data);
-
-        //all posts that have 'lorem' in the title
-        //SELECT * FROM POSTS
-        //WHERE title LIKE '%lorem%'
-
-        // $posts = Post::where('title', 'LIKE', '%lorem%')
-        //             ->orWhere('content','LIKE','%lorem%')->max('id');
-            
-        //         dd($posts);
     }
 
 
@@ -101,7 +92,7 @@ class PostsController extends Controller
         $post->url=$request->url;
         $post->content =$request->content;
         // $post->created_by = Auth::user();
-        $post->created_by = 1;
+        $post->created_by = 2;
         $post->save();
 
         $request->session()->flash('SUCCESS_MESSAGE', 'Post was saved succesfully');

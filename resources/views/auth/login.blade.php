@@ -23,7 +23,7 @@
     </div>
 
     <div>
-        <button type="submit">Login</button>
+        <button class="btn-success btn" type="submit">Login</button>
     </div>
 </form>
 @stop
