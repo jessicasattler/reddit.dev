@@ -32,8 +32,8 @@ class PostsController extends Controller
 
     public function searchTitle(Request $request)
     {
-        // dd($request->get('title'));
-        $posts = Post::where('title', 'LIKE', '%'. $request->get('title') . '%')->get();   
+        $posts = Post::where('title', 'LIKE', '%'. $request->get('title') . '%')->get();  
+        // $posts = Post::where('title', 'LIKE', '%'. $request->get('title') . '%')->paginate(3);
         // dd($posts);
         $data = array('posts'=>$posts);
         return view('posts.search', $data);
@@ -131,6 +131,9 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
+
+        // $posts = Post::where('created_by', $id)->get();
+
         $data = array('post'=>$post);
 
         return view ('posts.edit', $data);

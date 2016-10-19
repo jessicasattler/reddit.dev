@@ -4,7 +4,7 @@
 
 @section('content')
 
- {{-- search form --}}
+ {{-- search form for username --}}
 
      <form class="form form-inline" role="search" action="{{ action('UsersController@searchUserName')}}" method= "GET">
       <div class="form-group">
@@ -22,9 +22,5 @@
 			<h6>Created : {{$user->created_at->diffForHumans()}}</h6>
 		</div>
 	@endforeach
-
-
-
-
 
 @stop 

@@ -155,9 +155,4 @@ class UsersController extends Controller
         $user = delete();
 
     }
-
-    // public function logout()
-    // {
-    //     Auth::logout();
-    // }
 }
