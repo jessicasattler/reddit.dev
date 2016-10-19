@@ -96,7 +96,9 @@ class PostsController extends Controller
         $post->save();
 
         $request->session()->flash('SUCCESS_MESSAGE', 'Post was saved succesfully');
-        return redirect()->action('PostsController@show', $post->id);
+        $data = array('posts'=>array($post));
+        // return redirect()->action('PostsController@show', $post->id);
+        return view('posts.show', $data);
 
     }
 
@@ -109,12 +111,10 @@ class PostsController extends Controller
     public function show(Request $request, $id)
     {
 
-        // if(empty($id)){
-        //     Log::info($request->all());
-        //     abort(404);
-        // }
-        $posts = Post::findOrFail($id);
-        // dd($post);
+     
+       $posts = Post::findOrFail($id);
+
+        $posts =  Post::where('created_by',$id)->get();
 
         $data = array('posts'=>$posts);
 
