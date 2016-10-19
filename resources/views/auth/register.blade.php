@@ -26,9 +26,9 @@
         Confirm Password
         <input class="form-control otherFont" type="password" name="password_confirmation">
     </div>
-
+    <hr>
     <div>
-        <button type="submit">Register</button>
+        <button class="btn btn-primary" type="submit">Register</button>
     </div>
 </form>
 @stop
