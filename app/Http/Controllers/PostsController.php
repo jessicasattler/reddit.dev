@@ -32,9 +32,9 @@ class PostsController extends Controller
 
     public function searchTitle(Request $request)
     {
-        $posts = Post::where('title', 'LIKE', '%'. $request->get('title') . '%')->get();  
-        // $posts = Post::where('title', 'LIKE', '%'. $request->get('title') . '%')->paginate(3);
-        // dd($posts);
+        // $posts = Post::where('title', 'LIKE', '%'. $request->get('title') . '%')->get();  
+        $posts = Post::where('title', 'LIKE', '%'. $request->get('title') . '%')->paginate(3);
+     
         $data = array('posts'=>$posts);
         return view('posts.search', $data);
     }

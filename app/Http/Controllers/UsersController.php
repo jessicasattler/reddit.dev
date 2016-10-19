@@ -26,6 +26,8 @@ class UsersController extends Controller
         // Use what you learned about building queries to create the ability to search for a user by name.
 
         $users = User::where('name', 'LIKE', '%'. $request->get('name') . '%')->get();   
+        // $users = User::where('name', 'LIKE', '%'. $request->get('name') . '%')->paginate(3);   
+
         // dd($posts);
         $data = array('users'=>$users);
         return view('users.show', $data);

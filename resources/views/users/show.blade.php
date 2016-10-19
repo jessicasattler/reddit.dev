@@ -22,5 +22,5 @@
 			<h6>Created : {{$user->created_at->diffForHumans()}}</h6>
 		</div>
 	@endforeach
-
+{{-- {!! $users->appends(['searchUserName'=> Request::get('name')])->render()!!} --}}
 @stop 

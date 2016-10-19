@@ -21,5 +21,5 @@
 				<h6>Created : {{$post->created_at->diffForHumans()}} by {{ $post->user->name }}</h6>
 			</div>
 		@endforeach
-{{-- {!! $posts->render()!!} --}}
+{!! $posts->appends(['title'=> Request::get('title')])->render()!!}
 @stop

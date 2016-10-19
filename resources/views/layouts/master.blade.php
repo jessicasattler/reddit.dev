@@ -47,14 +47,18 @@
           <li><a href="{{ action('PostsController@create', array(Auth::id())) }}">Create Post</a></li>
 
 
-          <li><a href="http://reddit.dev/auth/logout">Logout</a></li>
+          {{-- <li><a href="http://reddit.dev/auth/logout">Logout</a></li> --}}
 
-          {{-- <li><a href="{{ action('AuthController@logout, array(Auth::user())}}">Logout</a> </li> --}}
+          <li><a href="{{ action('Auth\AuthController@getLogout')}}">Logout</a></li>
 
         @else 
       
-          <li><a href="http://reddit.dev/auth/register">Register</a></li>
-          <li><a href="http://reddit.dev/auth/login">Login</a></li>
+          {{-- <li><a href="http://reddit.dev/auth/register">Register</a></li> --}}
+          <li><a href="{{ action('Auth\AuthController@getRegister')}}">Register</a></li>
+
+          {{-- <li><a href="http://reddit.dev/auth/login">Login</a></li> --}}
+          <li><a href="{{ action('Auth\AuthController@getLogin')}}">Login</a></li>
+
 
         @endif
 
