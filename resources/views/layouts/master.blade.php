@@ -35,28 +35,19 @@
       <ul class="nav navbar-nav navbar-right">
        
         @if (Auth::check()) 
-      
-          {{-- <li><a href="http://reddit.dev/users/1">Individual User</a></li> --}}
-          {{-- the following displays the same as the top --}}
-          <li><a href="{{ action('UsersController@show', array(Auth::user())) }}">Individual User</a></li>
-          {{-- <li><a href="http://reddit.dev/posts/1">Individual Post</a></li> --}}
+          {{-- <li><a href="{{ action('UsersController@show', array(Auth::user())) }}">Individual User</a></li> --}}
+                {{-- <li><a href="http://reddit.dev/users/1">Individual User</a></li> --}}
+
+                <li class="{{ Request::is('http://reddit.dev/users/1') ? 'active' : '' }}"><a href="{{ action('UsersController@show', array(Auth::user())) }}">Individual User</a></li>
           <li><a href="{{ action('PostsController@show', array(Auth::id())) }}">Individual Post</a></li>
-          {{-- <li><a href="http://reddit.dev/posts/4/edit">Edit Post</a></li> --}}
           <li><a href="{{ action('PostsController@edit', array(Auth::id())) }}">Edit Post</a></li>
-          {{-- <li><a href="http://reddit.dev/posts/create">Create Post</a></li> --}}
           <li><a href="{{ action('PostsController@create', array(Auth::id())) }}">Create Post</a></li>
-
-
-          {{-- <li><a href="http://reddit.dev/auth/logout">Logout</a></li> --}}
 
           <li><a href="{{ action('Auth\AuthController@getLogout')}}">Logout</a></li>
 
         @else 
       
-          {{-- <li><a href="http://reddit.dev/auth/register">Register</a></li> --}}
           <li><a href="{{ action('Auth\AuthController@getRegister')}}">Register</a></li>
-
-          {{-- <li><a href="http://reddit.dev/auth/login">Login</a></li> --}}
           <li><a href="{{ action('Auth\AuthController@getLogin')}}">Login</a></li>
 
 
