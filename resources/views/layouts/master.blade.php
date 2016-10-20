@@ -38,9 +38,18 @@
           {{-- <li><a href="{{ action('UsersController@show', array(Auth::user())) }}">Individual User</a></li> --}}
                 {{-- <li><a href="http://reddit.dev/users/1">Individual User</a></li> --}}
 
-                <li class="{{ Request::is('http://reddit.dev/users/1') ? 'active' : '' }}"><a href="{{ action('UsersController@show', array(Auth::user())) }}">Individual User</a></li>
-          <li><a href="{{ action('PostsController@show', array(Auth::id())) }}">Individual Post</a></li>
+                <li class="{{ Request::is('http://reddit.dev/users/') ? 'active' : '' }}"><a href="{{ action('UsersController@show', array(Auth::user())) }}">Individual User</a></li>
+          @if(1==2)
+          {{-- something along the lines of SELECT * FROM posts WHERE created_by = 102 --}}
+
+            <li><a href="{{ action('PostsController@show', array(Auth::id())) }}">Individual Post</a></li>
+
+          @endif 
+
+          @if(1==2)
           <li><a href="{{ action('PostsController@edit', array(Auth::id())) }}">Edit Post</a></li>
+          @endif 
+
           <li><a href="{{ action('PostsController@create', array(Auth::id())) }}">Create Post</a></li>
 
           <li><a href="{{ action('Auth\AuthController@getLogout')}}">Logout</a></li>
