@@ -19,7 +19,7 @@
     </div>
 
     <div>
-        <input class = "form-control otherFont" type="checkbox" name="remember"> Remember Me
+        <input class = "otherFont" type="checkbox" name="remember"> Remember Me
     </div>
 
     <div>
