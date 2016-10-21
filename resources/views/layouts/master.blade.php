@@ -29,16 +29,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="http://reddit.dev/posts#">Blog <span class="sr-only">(current)</span></a></li>
-        
+        {{-- <li class="active"><a href="http://reddit.dev/posts#">Blog <span class="sr-only">(current)</span></a></li> --}}
+        <li class="active"><a href="{{ action('PostsController@index', array(Auth::user())) }}">Blog <span class="sr-only">(current)</span></a></li>
 
       <ul class="nav navbar-nav navbar-right">
        
         @if (Auth::check()) 
-          {{-- <li><a href="{{ action('UsersController@show', array(Auth::user())) }}">Individual User</a></li> --}}
+          <li><a href="{{ action('UsersController@show', array(Auth::user())) }}">Individual User</a></li>
                 {{-- <li><a href="http://reddit.dev/users/1">Individual User</a></li> --}}
 
-                <li class="{{ Request::is('http://reddit.dev/users/') ? 'active' : '' }}"><a href="{{ action('UsersController@show', array(Auth::user())) }}">User Info</a></li>
+                {{-- <li class="{{ Request::is('http://reddit.dev/users/') ? 'active' : '' }}"><a href="{{ action('UsersController@show', array(Auth::user())) }}">User Info</a></li> --}}
           @if(1==2)
           {{-- something along the lines of SELECT * FROM posts WHERE created_by = 102 --}}
 
